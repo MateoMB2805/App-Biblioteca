@@ -1,22 +1,45 @@
 package Model;
 
-
+import java.time.LocalDate;
+import java.util.List;
 
 public class DetallesPrestamo {
+    private String codigo;
     private Double subTotalPrestamo;
+    private List<Libro> libros;
     private int unidadesPrestadas ;
+    private String cedulaEstudiante;
+    private String cedulaBibliotecario;
+    private LocalDate fechaPrestamo;
+    private LocalDate fechaEntrega;
+    private Libro libro;
     
-    public DetallesPrestamo(Double subTotalPrestamo, int unidadesPrestadas) {
+    public DetallesPrestamo(String codigo,Double subTotalPrestamo, int unidadesPrestadas, String cedulaEstudiante,
+            String cedulaBibliotecario,LocalDate fechaPrestamo, LocalDate fechaEntrega) {
+        this.codigo=codigo;        
         this.subTotalPrestamo = subTotalPrestamo;
         this.unidadesPrestadas = unidadesPrestadas;
+        this.cedulaEstudiante = cedulaEstudiante;
+        this.cedulaBibliotecario = cedulaBibliotecario;
+        this.fechaEntrega = fechaEntrega;
+        this.fechaPrestamo = fechaPrestamo;
     }
 
     public Double getSubTotalPrestamo() {
+        subTotalPrestamo= 2000.0*unidadesPrestadas;// El valor 2000 es un supuesto, este valor puede ser cualquiera dependiendo del valor que se le de al préstamo de los libros
         return subTotalPrestamo;
     }
 
-    public void setSubTotalPrestamo(Double subTotalPrestamo) {
-        this.subTotalPrestamo = subTotalPrestamo;
+
+
+    
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
     }
 
     public int getUnidadesPrestadas() {
@@ -26,9 +49,58 @@ public class DetallesPrestamo {
     public void setUnidadesPrestadas(int unidadesPrestadas) {
         this.unidadesPrestadas = unidadesPrestadas;
     }
+
+    public String getCedulaEstudiante() {
+        return cedulaEstudiante;
+    }
+
+    public void setCedulaEstudiante(String cedulaEstudiante) {
+        this.cedulaEstudiante = cedulaEstudiante;
+    }
+
+    public String getCedulaBibliotecario() {
+        return cedulaBibliotecario;
+    }
+
+    public void setCedulaBibliotecario(String cedulaBibliotecario) {
+        this.cedulaBibliotecario = cedulaBibliotecario;
+    }
+
+    public LocalDate getFechaPrestamo() {
+        return fechaPrestamo;
+    }
+
+    public void setFechaPrestamo(LocalDate fechaPrestamo) {
+        this.fechaPrestamo = fechaPrestamo;
+    }
+
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(LocalDate fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public Libro getLibro(){
+        return libro;
+    }
     
-    public void prestarLibro(){
-        
+
+//   public void setLibro(String titulo){
+//        for (Libro libro: libros){                                             POSIBLE METODO PARA ASIGNAR EL LIBRO A PRESTAR 
+//            if (libro.getUnidadesDisponibles()>=1){
+//                this.libro=libro;
+//            }
+//       }
+//    }   
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     

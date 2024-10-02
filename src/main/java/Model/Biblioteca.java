@@ -139,13 +139,15 @@ public class Biblioteca {
      // Crear préstamo
     public void crearPrestamo(String tituloLibro, String codigo, String cedulaEst, String cedulaBib, int costoTotal){
         for (Libro libro : libros){
-            if (libro.getTitulo().toLowerCase().equals(tituloLibro.toLowerCase()) && libro.getUnidadesDisponibles() >= 1){
+            if (libro.getTitulo().toLowerCase().equals(tituloLibro.toLowerCase()) && libro.getUnidadesDisponibles() >= 1){ //Dado un título se compara en la lista de libros para crear el préstamo de ese mismo libro si está disponible
                 Prestamo prestamo = new Prestamo(codigo, null);
-                DetallesPrestamo detalles = new DetallesPrestamo(codigo, null, costoTotal, cedulaEst, cedulaBib, null, null);
+                DetallesPrestamo detalles = new DetallesPrestamo(codigo, null, costoTotal, cedulaEst, cedulaBib, null, null);//Se crean los detalles del prestamo
                 detallesPrestamos.add(detalles);
                 prestamos.add(prestamo);
                 System.out.println("Nuevo préstamo creado");
                 libro.restarUnidadDisponible();
+                EstadoLibro estado = EstadoLibro.PRESTADO; // Se asigna el estado del libro a prestado
+                System.out.println("Ahora el libro se encuentra " + estado);
             }
         }
      }

@@ -40,8 +40,8 @@ public class Prestamo {
     public Double getCostoTotal(){
         int diasPrestamo=calcularDiasPrestamo();
         Double subTotal=detallesPrestamos.getSubTotalPrestamo();
-        costoTotal= 
-        return subTotal * diasPrestamo;
+        costoTotal= subTotal * diasPrestamo;
+        return costoTotal;
     }
 
     private int calcularDiasPrestamo(){
