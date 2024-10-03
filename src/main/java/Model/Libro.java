@@ -75,5 +75,8 @@ public class Libro {
         }
     }
     
+    public void sumarUnidadDisponible(){
+        unidadesDisponibles++;
+    }
 
 }

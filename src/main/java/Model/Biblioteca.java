@@ -152,6 +152,18 @@ public class Biblioteca {
         }
      }
      
+     //Entregar préstamo
+     public void entregarPrestamo(String codigoPrestamo, LocalDate fecha){
+        for (Prestamo prestamo: prestamos){
+            if(prestamo.getCodigo().equals(codigoPrestamo)){
+                //detallesPrestamos.setFechaEntrega();          Posible funcion para asignar fecha de entrega de la clase detallesPrestamo
+                prestamo.getCostoTotal();
+                EstadoLibro estado = EstadoLibro.ENTREGADO; // Se asigna el estado del libro a prestado
+                System.out.println("Ahora el libro se encuentra " + estado);
+                
+            }
+        }
+     }
     
 
     
