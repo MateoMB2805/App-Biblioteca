@@ -2,7 +2,7 @@ package Model;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
+
 
 public class Prestamo {
     private String codigo;

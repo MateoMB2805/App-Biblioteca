@@ -13,9 +13,10 @@ public class DetallesPrestamo {
     private LocalDate fechaPrestamo;
     private LocalDate fechaEntrega;
     private Libro libro;
+    private EstadoLibro estadoLibro;
     
     public DetallesPrestamo(String codigo,Double subTotalPrestamo, int unidadesPrestadas, String cedulaEstudiante,
-            String cedulaBibliotecario,LocalDate fechaPrestamo, LocalDate fechaEntrega) {
+            String cedulaBibliotecario,LocalDate fechaPrestamo, LocalDate fechaEntrega, Libro libro) {
         this.codigo=codigo;        
         this.subTotalPrestamo = subTotalPrestamo;
         this.unidadesPrestadas = unidadesPrestadas;
@@ -23,15 +24,14 @@ public class DetallesPrestamo {
         this.cedulaBibliotecario = cedulaBibliotecario;
         this.fechaEntrega = fechaEntrega;
         this.fechaPrestamo = fechaPrestamo;
+        this.libro = libro;
+        this.estadoLibro = EstadoLibro.PRESTADO;
     }
 
     public Double getSubTotalPrestamo() {
-        subTotalPrestamo= 2000.0*unidadesPrestadas;// El valor 2000 es un supuesto, este valor puede ser cualquiera dependiendo del valor que se le de al préstamo de los libros
-        return subTotalPrestamo;
+        // Si subTotalPrestamo ya tiene un valor inicial, simplemente multiplícalo por las unidades prestadas
+        return subTotalPrestamo * unidadesPrestadas;
     }
-
-
-
     
 
     public List<Libro> getLibros() {
@@ -85,15 +85,6 @@ public class DetallesPrestamo {
     public Libro getLibro(){
         return libro;
     }
-    
-
-//   public void setLibro(String titulo){
-//        for (Libro libro: libros){                                             POSIBLE METODO PARA ASIGNAR EL LIBRO A PRESTAR 
-//            if (libro.getUnidadesDisponibles()>=1){
-//                this.libro=libro;
-//            }
-//       }
-//    }   
 
     public String getCodigo() {
         return codigo;
@@ -103,12 +94,14 @@ public class DetallesPrestamo {
         this.codigo = codigo;
     }
 
-    
-    
-    
-    
-    
-    
+    // Método para obtener el estado del libro
+    public EstadoLibro getEstadoLibro() {
+        return estadoLibro;
+    }
 
+    // Método para establecer el estado del libro
+    public void setEstadoLibro(EstadoLibro estadoLibro) {
+        this.estadoLibro = estadoLibro;
+    }
     
 }
